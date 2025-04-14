@@ -46,7 +46,7 @@ defmodule Astarte.Core.Generators.Interface do
 
   defp id, do: repeatedly(&UUID.bingenerate/0)
 
-  defp name do
+  def name do
     gen all optional_part <- name_optional(),
             required_part <- name_required(optional_part) do
       optional_part <> required_part
@@ -93,7 +93,7 @@ defmodule Astarte.Core.Generators.Interface do
     end
   end
 
-  defp endpoint_prefix do
+  def endpoint_prefix do
     gen all(
           prefix <-
             frequency([
